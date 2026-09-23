@@ -22,18 +22,10 @@ pipeline {
             steps {
                 bat '''
                     call venv\\Scripts\\activate
-                    pytest test_app.py
+                    pytest -v test_app.py
                 '''
             }
         }
     }
-
-    post {
-        success {
-            echo 'Build and tests completed successfully! Deploying application...'
-        }
-        failure {
-            echo 'Build or tests failed! Please check the console output logs.'
-        }
-    }
 }
+
